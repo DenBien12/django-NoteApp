@@ -12,7 +12,7 @@ from django.contrib.auth import logout
 @login_required(login_url='/login/')
 def editor(request):
     docid = int(request.POST.get('docid', 0))
-    notes = Note.object.all()
+    notes = Note.objects.all()
 
     if request.method == 'POST':
         docid = int(request.POST.get('docid', 0))
@@ -95,6 +95,6 @@ def register_page(request):
 
 
 # logout function
-def custome_logout(request):
+def custom_logout(request):
     logout(request)
     return redirect('login')
